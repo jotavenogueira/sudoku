@@ -32,7 +32,8 @@ public class Board {
             return false;
         }
 
-        return spaces.stream().flatMap(Collection::stream).anyMatch(s -> nonNull(s.getActual()) && s.getActual().equals(s.getExpected()));
+        return spaces.stream().flatMap(Collection::stream)
+                .anyMatch(s -> nonNull(s.getActual()) && !s.getActual().equals(s.getExpected()));
     }
 
     public boolean changeValue(final int col, final int row, final Integer value){
